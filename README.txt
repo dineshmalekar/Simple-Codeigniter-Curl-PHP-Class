@@ -3,7 +3,7 @@ CodeIgniter cURL Library
 Author: Jason Michels
 Website: http://www.thebizztech.com
 
-This PHP class was built to make cURL easy to use with Codeigniter.  You can use this for anything from getting the contents of a web page, to submitting data through PayPal's API.
+This PHP class was built to make cURL easy to use with Codeigniter.  You can use this for anything from getting the contents of a web page, to submitting data through API's.
 If you have any improvement suggestions or questions please let me know on GitHub or through my blog (info below).
 
 To stay up to date on changes to this class keep checking the Github repository, https://thebizztech@github.com/thebizztech/Simple-Codeigniter-Curl-PHP-Class.git.
@@ -20,9 +20,9 @@ Usage:
 	$this->load->library('Curl');
 	
 	This example uses PHP chaining:
-	echo $this->curl->set_url('http://www.apple.com')->get();
+	echo $this->curl->set_url('http://www.thebizztech.com')->get();
 	
 	The equivalent without chaining would be this:
-	$this->curl->set_url('http://www.apple.com');
+	$this->curl->set_url('http://www.thebizztech.com');
 	$result = $this->curl->get();
 	print_r($result);

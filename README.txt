@@ -26,3 +26,7 @@ Usage:
 	$this->curl->set_url('http://www.thebizztech.com');
 	$result = $this->curl->get();
 	print_r($result);
+
+	//If you would like to POST data then you just need to send an array of data like this
+	$data = array("foo" => "bar", "foo_again" => "bar_again");
+	$result = $this->curl->set_url($url)->post($data);

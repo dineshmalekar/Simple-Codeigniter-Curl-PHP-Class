@@ -10,10 +10,17 @@
 //Need to think about adding a setString and setArray to differentiate the two types
 class Curl {
 	
-	var $url = "";
-	var $headers = array(); //Headers are built in set_headers() and passed in execute()
-	var $post_data = "";
-	var $fields_string = "";
+	private $url = "";
+	private $headers = array(); //Headers are built in set_headers() and passed in execute()
+	private $post_data = "";
+	private $fields_string = "";
+	private $ci = "";
+
+	public function __construct()
+    {
+        $this->ci =& get_instance();
+    }
+
 	
 	//setUrl() must be set by Codeigniter controller or models
 	public function setUrl($url)
@@ -79,6 +86,7 @@ class Curl {
 	{
 		$ch = curl_init();
 		
+		log_message('DEBUG', $this->headers);
 		curl_setopt_array($ch, $this->headers);
 		// grab URL
 		$result = curl_exec($ch);

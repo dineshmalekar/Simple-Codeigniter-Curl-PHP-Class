@@ -7,6 +7,7 @@
  * @link	https://thebizztech@github.com/thebizztech/Simple-Codeigniter-Curl-PHP-Class.git
  */
 
+//Need to think about adding a setString and setArray to differentiate
 class Curl {
 	
 	var $url = "";

@@ -8,6 +8,7 @@
  */
 
 //Need to think about adding a setString and setArray to differentiate the two types
+//
 class Curl {
 	
 	var $url = "";

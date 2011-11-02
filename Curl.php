@@ -15,7 +15,7 @@ class Curl {
 	var $post_data = "";
 	var $fields_string = "";
 	
-	//set_url() must be set by Codeigniter controller or models
+	//setUrl() must be set by Codeigniter controller or models
 	public function setUrl($url)
 	{
 		$this->url = $url;
@@ -57,7 +57,6 @@ class Curl {
 		if($type == 'post')
 		{
 			$this->headers[CURLOPT_POST] = TRUE;
-			//$this->build_post_string();
 			$this->headers[CURLOPT_POSTFIELDS] = $this->fields_string;
 		}
 		return $this;
@@ -70,9 +69,8 @@ class Curl {
 	}
 	
 	//Set the headers and process curl via a POST
-	public function post($data)
+	public function post()
 	{
-	    //$this->post_data = $data;
 		return $this->setHeaders('post')->execute();
 	}
 	

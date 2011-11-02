@@ -86,7 +86,7 @@ class Curl {
 	{
 		$ch = curl_init();
 		
-		log_message('DEBUG', $this->headers);
+		log_message('DEBUG', serialize($this->headers));
 		curl_setopt_array($ch, $this->headers);
 		// grab URL
 		$result = curl_exec($ch);

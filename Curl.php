@@ -18,7 +18,7 @@ class Curl {
 
 	public function __construct()
     {
-        $this->ci =& get_instance();
+    	//$this->ci =& get_instance();
     }
 
 	
@@ -86,11 +86,9 @@ class Curl {
 	{
 		$ch = curl_init();
 		
-		log_message('DEBUG', serialize($this->headers));
 		curl_setopt_array($ch, $this->headers);
 		// grab URL
 		$result = curl_exec($ch);
-		log_message('DEBUG', $result);
 	
 		curl_close($ch);
 		return $result;

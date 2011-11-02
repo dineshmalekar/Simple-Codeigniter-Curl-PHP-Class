@@ -16,13 +16,13 @@ class Curl {
 	var $fields_string = "";
 	
 	//set_url() must be set by Codeigniter controller or models
-	public function set_url($url)
+	public function setUrl($url)
 	{
 		$this->url = $url;
 		return $this;
 	}
 
-	public function build_post_string()
+	public function buildPostString()
 	{
 		$this->fields_string = null;
 		foreach($this->post_data as $key=>$value) { $this->fields_string .= $key.'='.$value.'&'; }
@@ -44,7 +44,7 @@ class Curl {
 	}
 	
 	//Headers can be modified depending on what you need cURL to accomplish
-	private function set_headers($type = '')
+	private function setHeaders($type = '')
 	{
 		$this->headers = array(
 						CURLOPT_URL => $this->url,
@@ -66,14 +66,14 @@ class Curl {
 	//Set the headers and process curl via a GET
 	public function get()
 	{
-		return $this->set_headers()->execute();
+		return $this->setHeaders()->execute();
 	}
 	
 	//Set the headers and process curl via a POST
 	public function post($data)
 	{
 	    //$this->post_data = $data;
-		return $this->set_headers('post')->execute();
+		return $this->setHeaders('post')->execute();
 	}
 	
 	//Starts curl and sets headers and returns the data in a string

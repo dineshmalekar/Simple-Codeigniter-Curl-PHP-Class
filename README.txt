@@ -20,13 +20,13 @@ Usage:
 	$this->load->library('Curl');
 	
 	This example uses PHP chaining:
-	echo $this->curl->set_url('http://www.thebizztech.com')->get();
+	echo $this->curl->setUrl('http://www.thebizztech.com')->get();
 	
 	The equivalent without chaining would be this:
-	$this->curl->set_url('http://www.thebizztech.com');
+	$this->curl->setUrl('http://www.thebizztech.com');
 	$result = $this->curl->get();
 	print_r($result);
 
-	//If you would like to POST data then you just need to send an array of data like this
+	//If you would like to POST data then you just need to send an array or string of data like this
 	$data = array("foo" => "bar", "foo_again" => "bar_again");
-	$result = $this->curl->set_url($url)->post($data);
+	$result = $this->curl->setUrl($url)->setArray($data)->post();

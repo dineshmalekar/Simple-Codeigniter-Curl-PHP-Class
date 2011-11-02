@@ -29,6 +29,19 @@ class Curl {
 		$this->fields_string = rtrim($this->fields_string,"&");
 		return $this;
 	}
+
+	public function setString($string)
+	{
+		$this->fields_string = $string;
+		return $this;
+	}
+
+	public function setArray($array)
+	{
+		$this->post_data = $array;
+		$this->buildPostString();
+		return $this;
+	}
 	
 	//Headers can be modified depending on what you need cURL to accomplish
 	private function set_headers($type = '')
@@ -44,7 +57,7 @@ class Curl {
 		if($type == 'post')
 		{
 			$this->headers[CURLOPT_POST] = TRUE;
-			$this->build_post_string();
+			//$this->build_post_string();
 			$this->headers[CURLOPT_POSTFIELDS] = $this->fields_string;
 		}
 		return $this;
@@ -59,7 +72,7 @@ class Curl {
 	//Set the headers and process curl via a POST
 	public function post($data)
 	{
-	    $this->post_data = $data;
+	    //$this->post_data = $data;
 		return $this->set_headers('post')->execute();
 	}
 	

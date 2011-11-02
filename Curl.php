@@ -90,6 +90,7 @@ class Curl {
 		curl_setopt_array($ch, $this->headers);
 		// grab URL
 		$result = curl_exec($ch);
+		log_message('DEBUG', $result);
 	
 		curl_close($ch);
 		return $result;

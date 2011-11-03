@@ -76,8 +76,18 @@ class Curl {
 	}
 	
 	//Set the headers and process curl via a POST
-	public function post()
+	public function post($data = null)
 	{
+		if(is_array($data))
+		{
+			$this->post_data = $data;
+			$this->buildPostString();
+		}
+		else
+		{
+			$this->fields_string = $data;
+		}
+
 		return $this->setHeaders('post')->execute();
 	}
 	

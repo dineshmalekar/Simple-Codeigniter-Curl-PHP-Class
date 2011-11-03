@@ -37,12 +37,14 @@ class Curl {
 		return $this;
 	}
 
+	//These are no longer necesary
 	public function setString($string)
 	{
 		$this->fields_string = $string;
 		return $this;
 	}
 
+	//These are no longer necesary
 	public function setArray($array)
 	{
 		$this->post_data = $array;
@@ -76,6 +78,7 @@ class Curl {
 	}
 	
 	//Set the headers and process curl via a POST
+	//Checks if an array and processes data
 	public function post($data = null)
 	{
 		if(is_array($data))

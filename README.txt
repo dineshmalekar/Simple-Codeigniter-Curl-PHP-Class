@@ -3,6 +3,8 @@ CodeIgniter cURL Library
 Author: Jason Michels
 Website: http://www.thebizztech.com
 
+UPDATE: I have removed the need to use setArray() or setString() when doing a post().  I added logic in post() to check for an array. Examples below.
+
 This PHP class was built to make cURL easy to use with Codeigniter.  You can use this for anything from getting the contents of a web page, to submitting data through API's.
 If you have any improvement suggestions or questions please let me know on GitHub or through my blog (info below).
 
@@ -27,6 +29,9 @@ Usage:
 	$result = $this->curl->get();
 	print_r($result);
 
-	//If you would like to POST data then you just need to send an array or string of data like this
+	//If you would like to POST data then you just need to send an array or string of data in one of these two ways.
 	$data = array("foo" => "bar", "foo_again" => "bar_again");
+	$result = $this->curl->setUrl($url)->post($data);
+
+	//Other option
 	$result = $this->curl->setUrl($url)->setArray($data)->post();

@@ -18,7 +18,7 @@ class Curl {
 
 	public function __construct()
     {
-    	//$this->ci =& get_instance();
+    	$this->ci =& get_instance();
     }
 
 	
@@ -98,10 +98,17 @@ class Curl {
 	private function execute()
 	{
 		$ch = curl_init();
+
+		//log request
+		if($this->ci->config->item('log_curl_request')){ log_message('DEBUG', "URL => ".$this->url." DATA => ".$this->fields_string);}
 		
 		curl_setopt_array($ch, $this->headers);
+
 		// grab URL
 		$result = curl_exec($ch);
+
+		//log response
+		if($this->ci->config->item('log_curl_response')){ log_message('DEBUG', "RESULT => ".$result);}
 	
 		curl_close($ch);
 		return $result;
